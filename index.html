@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Carousel Page</title>
+</head>
+
+<body>
+  <header>
+    <!-- navbar - mo rong nav size medium - nav van ban mau trang nen toi - dinh vi nav tren cung - nen toi  -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <!-- container-fluid: Tạo một vùng chứa có chiều rộng đầy đủ trên toàn bộ chiều rộng của màn hình, cho phép nội dung bên trong có thể mở rộng ra đến các cạnh của màn hình. -->
+      <div class="container-fluid">
+        <!-- navbar-brand: Đánh dấu phần tử là tên thương hiệu hoặc logo của thanh điều hướng. Thường dùng cho các liên kết chính của thanh điều hướng. -->
+        <a href="#" class="navbar-brand">Carousel</a>
+        <!-- navbar-toggler: Cung cấp kiểu dáng và chức năng cho nút điều khiển thanh điều hướng, đặc biệt là cho các màn hình nhỏ hơn, nơi thanh điều hướng có thể bị thu gọn. -->
+        <!-- data-bs-toggle="collapse": Xác định rằng nút sẽ điều khiển việc mở hoặc đóng thanh điều hướng. -->
+        <!-- data-bs-target="#navbarCollapse": Chỉ định phần tử mà nút này sẽ ảnh hưởng đến (thanh điều hướng chính ở đây có ID navbarCollapse). -->
+        <!-- aria-controls="navbarCollapse": Cung cấp thông tin cho công cụ hỗ trợ về phần tử mà nút điều khiển. -->
+        <!-- aria-expanded="false": Chỉ định trạng thái hiện tại của phần tử (đóng).  -->
+        <!-- aria-label="Toggle navigation": Cung cấp mô tả cho nút, hữu ích cho các công cụ hỗ trợ.  -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- collapse: Áp dụng hiệu ứng thu gọn cho phần tử, giúp nó bị ẩn khi không cần thiết. -->
+        <!-- navbar-collapse: Cung cấp kiểu dáng cho phần tử thu gọn của thanh điều hướng. -->
+        <!-- id="navbarCollapse": ID của phần tử, được liên kết với thuộc tính data-bs-target của nút điều khiển. -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <!-- me-auto: margin-end-auto giúp căn lề tự động để phần tử khác nằm ở cuối không gian còn lại.
+               mb-2:margin-bottom-2: thêm lề dưới cho phần tử.
+               mb-md-0:margin-bottom-medium-0 xóa lề dưới trên màn hình có kích thước từ md (≥ 768px) trở lên -->
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <!-- nav-item: Đánh dấu phần tử là một mục điều hướng trong thanh điều hướng.
+                 nav-link: Đánh dấu phần tử là một liên kết điều hướng.
+                 active: Áp dụng kiểu dáng cho liên kết hiện tại, cho thấy đây là liên kết của trang hiện tại.
+                 disabled: Áp dụng kiểu dáng cho liên kết bị vô hiệu hóa, không thể nhấp vào.
+                 tabindex="-1": Xóa liên kết khỏi trình tự tab.
+                 aria-disabled="true": Cung cấp thông tin cho các công cụ hỗ trợ rằng liên kết này bị vô hiệu hóa. -->
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+            <li class="nav-item"><a href="#" class="nav-link disabled" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <!-- d-flex: Cung cấp kiểu dáng flexbox cho phần tử, giúp căn chỉnh các phần tử con theo hàng ngang. -->
+          <form class="d-flex">
+            <!-- form-control: Áp dụng kiểu dáng cho các phần tử nhập liệu trong biểu mẫu. -->
+            <!-- me-2: Cung cấp lề phải (margin-end) cho phần tử, tạo khoảng cách giữa ô tìm kiếm và nút tìm kiếm.
+                 btn: Cung cấp kiểu dáng cơ bản cho nút.-->
+            <input type="search" class="form-control me-2" placeholder="Search" aria-label="Search">
+            <!-- btn-outline-success: Áp dụng kiểu dáng cho nút với đường viền thành công (màu xanh lá cây) và nền trong suốt. -->
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- id:myCarousel , ap dung kieu dang co ban cho carousel(bang chuyen), hieu ung chuyen dong cho cac phan tu trong carousel (slide), kich hoat carousel de tu dong chuyen doi giua cac phan tu  -->
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- danh dau phan tu la 1 muc trong carousel, kich hoat muc hien tai -->
+      <div class="carousel-item active bg-img1">
+        <div class="container">
+          <!-- text-start: Căn chỉnh văn bản về phía bên trái (cho văn bản, tiêu đề trong carousel caption). -->
+          <div class="carousel-caption text-start">
+            <h1>Example headline</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nihil quasi nam harum tempora magnam
+              delectus et quisquam sequi deleniti, vero expedita! Eveniet illo praesentium harum cum voluptatem. Ad,
+              nam.</p>
+            <!-- btn-lg: Tạo nút lớn hơn. btn-primary: Áp dụng kiểu dáng cho nút chính (thường có màu nền nổi bật). -->
+            <p><a href="#" class="btn btn-lg btn-primary">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item bg-img2">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Another example headline</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi inventore consectetur eligendi laborum
+              rerum ex fuga fugit minus alias vero odio ipsa ratione, eveniet, dolorum quae ipsum assumenda voluptatibus
+              aliquid.</p>
+            <p><a href="#" class="btn btn-lg btn-primary">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item bg-img3">
+        <div class="container">
+          <!-- text-end: Căn chỉnh văn bản về phía bên phai (cho văn bản, tiêu đề trong carousel caption). -->
+          <div class="carousel-caption text-end">
+            <h1>One more for good measure</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi inventore consectetur eligendi
+              laborum rerum ex fuga fugit minus alias vero odio ipsa ratione, eveniet, dolorum quae ipsum
+              assumenda voluptatibus
+              aliquid.</p>
+            <p><a href="#" class="btn btn-lg btn-primary">Browse gallery</a></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- carousel-indicators: Cung cấp các điểm chỉ định cho các mục trong carousel, giúp người dùng biết đang ở phần tử nào và cho phép điều hướng đến mục cụ thể. -->
+    <div class="carousel-indicators">
+      <!-- data-bs-target: Chỉ định ID của carousel mà điều khiển sẽ ảnh hưởng đến. -->
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
+        aria-current="true"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <!-- carousel-control-prev và carousel-control-next: Cung cấp các điều khiển để chuyển sang phần tử trước hoặc tiếp theo trong carousel. -->
+    <!-- data-bs-slide="prev" và data-bs-slide="next": Xác định hành động điều khiển, là chuyển đến phần tử trước hoặc tiếp theo. -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <!-- carousel-control-prev-icon và carousel-control-next-icon: Hiển thị biểu tượng điều khiển. -->
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <!-- <"visually-hidden"Khoảng này chứa văn bản "Tiếp theo" bị ẩn đối với người dùng trực quan nhưng trình đọc màn hình có thể truy cập được. Nó cung cấp ngữ cảnh về chức năng của nút (điều hướng đến trang trình bày tiếp theo trong băng chuyền) cho người dùng sử dụng trình đọc màn hình. -->
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+
+  <!-- Maketing -->
+  <!--container: Cung cấp lề và căn chỉnh tự động cho các phần tử bên trong, giúp chúng nằm trong chiều rộng cố định trên các thiết bị khác nhau.  -->
+  <!-- marketing: Lớp tùy chỉnh để áp dụng các kiểu dáng đặc biệt cho phần tiếp thị, thường được sử dụng trong các giao diện tiếp thị hoặc mô tả sản phẩm. -->
+  <div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <!--col-lg-4: Chỉ định phần tử này chiếm 4 cột trong hệ thống lưới Bootstrap khi kích thước màn hình là lg (≥ 992px) và lớn hơn. Hệ thống lưới Bootstrap chia nhỏ trang thành 12 cột, vì vậy col-lg-4 sẽ chiếm 1/3 chiều rộng của màn hình lớn hơn.  -->
+      <div class="col-lg-4">
+        <!-- bd-placeholder-img: Lớp tùy chỉnh, có thể được sử dụng để áp dụng các kiểu dáng đặc biệt cho hình ảnh placeholder. rounded-circle: Tạo hình ảnh có hình dạng vòng tròn bằng cách làm tròn các góc của hình ảnh. -->
+        <img src="img/1.jpg" class="bd-placeholder-img rounded-circle" alt="Description of image 1">
+        <h2>Heading</h2>
+        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first
+          column.</p>
+        <!-- btn-secondary: Áp dụng kiểu dáng cho nút phụ (thường có màu nền ít nổi bật hơn). -->
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="img/2.jpg" class="bd-placeholder-img rounded-circle" alt="Description of image 2">
+        <h2>Heading</h2>
+        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.
+        </p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="img/3.jpg" class="bd-placeholder-img rounded-circle" alt="Description of image 3">
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+    <!--row: Xếp các phần tử con theo hàng, giúp căn chỉnh các cột bên trong hệ thống lưới Bootstrap.  -->
+    <!-- featurette: Lớp tùy chỉnh thường được sử dụng để áp dụng các kiểu dáng đặc biệt cho phần tử trình bày nổi bật, thường dùng cho các phần giới thiệu nổi bật trong trang web. -->
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span>
+        </h2>
+        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img src="img/1.jpg" class="featurette-image img-fluid mx-auto" alt="Description of image">
+      </div>
+    </div>
+    <hr class="featurette-divider">
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <!--float-end: Đặt phần tử (ở đây là liên kết) vào cuối dòng (căn chỉnh về bên phải).  -->
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
